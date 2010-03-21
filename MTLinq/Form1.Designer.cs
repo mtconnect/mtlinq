@@ -69,7 +69,7 @@
             this.Controls.Add(this.connect);
             this.Controls.Add(this.agentURI);
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "MTConnect Test";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

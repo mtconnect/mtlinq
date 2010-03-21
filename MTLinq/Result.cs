@@ -10,8 +10,8 @@ namespace MTLinq
     {
         DataItem mDataItem;
         public DataItem dataItem { get { return mDataItem; } }
-        Int32 mSequence;
-        public Int32 sequence { get { return mSequence; } }
+        UInt64 mSequence;
+        public UInt64 sequence { get { return mSequence; } }
         DateTime mTimestamp;
         public DateTime timestamp { get { return mTimestamp; } }
 
@@ -19,7 +19,7 @@ namespace MTLinq
         {
             String id = aElement.Attribute("dataItemId").Value;
             mDataItem = aDevice.getDataItem(id);
-            mSequence = Int32.Parse(aElement.Attribute("sequence").Value);
+            mSequence = UInt64.Parse(aElement.Attribute("sequence").Value);
             mTimestamp = DateTime.Parse(aElement.Attribute("timestamp").Value);
         }
     }
