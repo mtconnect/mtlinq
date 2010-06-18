@@ -30,7 +30,7 @@ namespace MTLinq
             mComponents = new List<Component>();
             mDataItems = new List<DataItem>();
             mParent = aParent;
-            XNamespace mt = "urn:mtconnect.com:MTConnectDevices:1.0";
+            XNamespace mt = aElement.Name.Namespace;
             XElement desc = aElement.Element(mt + "Description");
             if (desc != null)
             {

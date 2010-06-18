@@ -20,7 +20,7 @@ namespace MTLinq
         {
             mDevices = new Dictionary<string, Device>();
             XElement root = XElement.Load(mUri);
-            XNamespace mt = "urn:mtconnect.com:MTConnectDevices:1.0";
+            XNamespace mt = root.Name.Namespace;
             IEnumerable<XElement> devices =
                 from el in root.Descendants(mt + "Device")
                 select el;
@@ -47,7 +47,7 @@ namespace MTLinq
             List<Result> results = new List<Result>();
             String path = mUri + "current";
             XElement root = XElement.Load(path);
-            XNamespace mt = "urn:mtconnect.com:MTConnectStreams:1.0";
+            XNamespace mt = root.Name.Namespace;
             IEnumerable<XElement> devices =
                 from dev in root.Descendants(mt + "DeviceStream")
                 select dev;
@@ -85,6 +85,17 @@ namespace MTLinq
                             IEnumerable<XElement> children = ev.Elements();
                             foreach (XElement re in children)
                                 results.Add(new Sample(re, dev));
+                        }
+
+                        IEnumerable<XElement> conditions =
+                            from res in cs.Descendants(mt + "Condition")
+                            select res;
+
+                        foreach (XElement cond in conditions)
+                        {
+                            IEnumerable<XElement> children = cond.Elements();
+                            foreach (XElement re in children)
+                                results.Add(new Condition(re, dev));
                         }
                     }
                 }

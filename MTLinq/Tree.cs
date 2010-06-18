@@ -35,7 +35,7 @@ namespace MTLinq
             if (aComponent.dataItems() != null)
             {
                 foreach (DataItem d in aComponent.dataItems())
-                    node.Nodes.Add(new TreeNode(d.name));
+                    node.Nodes.Add(new TreeNode(d.category + ":" + d.type + "[" + d.name + "]"));
             }
 
             if (aComponent.components() != null)

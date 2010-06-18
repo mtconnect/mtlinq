@@ -26,7 +26,7 @@ namespace MTLinq
 
     public class Event : Result
     {
-        String mValue;
+        protected String mValue;
         public String value { get { return mValue; } }
 
         public Event(XElement aElement, Device aDevice)
@@ -44,7 +44,10 @@ namespace MTLinq
         public Sample(XElement aElement, Device aDevice)
             : base(aElement, aDevice)
         {
-            mValue = Double.Parse(aElement.Value);
+            if (aElement.Value != "UNAVAILABLE")
+                mValue = Double.Parse(aElement.Value);
+            else
+                mValue = 0.0;
         }
     }
 
@@ -66,6 +69,33 @@ namespace MTLinq
             mNativeCode = aElement.Attribute("nativeCode").Value;
             mSeverity = aElement.Attribute("severity").Value;
             mState = aElement.Attribute("state").Value;
+            
+        }
+    }
+
+    public class Condition : Event
+    {
+        String mNativeCode;
+        public String nativeCode { get { return mNativeCode; } }
+        String mNativeSeverity;
+        public String nativeSeverity { get { return mNativeSeverity; } }
+        String mType;
+        public String type { get { return mType; } }
+        String mQualifier;
+        public String qualifier { get { return mQualifier; } }
+
+
+        public Condition(XElement aElement, Device aDevice)
+            : base(aElement, aDevice)
+        {
+            if (aElement.Attribute("nativeCode") != null)
+                mNativeCode = aElement.Attribute("nativeCode").Value;
+            if (aElement.Attribute("nativeSeverity") != null)
+                mNativeSeverity = aElement.Attribute("nativeSeverity").Value;
+            if (aElement.Attribute("qualifier") != null)
+                mQualifier = aElement.Attribute("qualifier").Value;
+            mType = aElement.Attribute("type").Value;
+            mValue = mType + ":" + aElement.Name.LocalName + ":" + mValue;
         }
     }
 }

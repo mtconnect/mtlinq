@@ -37,7 +37,7 @@ namespace MTLinq
             XAttribute a = aElement.Attribute("id");
             if (a != null) mId = a.Value;
             a = aElement.Attribute("name");
-            if (a != null) mName = a.Value;
+            if (a != null) mName = a.Value; else mName = mId;
             a = aElement.Attribute("type");
             if (a != null) mType = a.Value;
             a = aElement.Attribute("subType");
