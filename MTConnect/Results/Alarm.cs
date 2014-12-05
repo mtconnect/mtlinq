@@ -12,14 +12,6 @@ namespace MTConnect
 {
     public class Alarm : Event
     {
-        public string Code { get; private set; }
-
-        public string NativeCode { get; private set; }
-
-        public string Severity { get; private set; }
-
-        public string State { get; private set; }
-
         public Alarm(XElement element, Device device)
             : base(element, device)
         {
@@ -27,7 +19,14 @@ namespace MTConnect
             NativeCode = element.Attribute("nativeCode").Value;
             Severity = element.Attribute("severity").Value;
             State = element.Attribute("state").Value;
-
         }
+
+        public string Code { get; private set; }
+
+        public string NativeCode { get; private set; }
+
+        public string Severity { get; private set; }
+
+        public string State { get; private set; }
     }
 }

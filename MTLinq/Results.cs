@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
+
+using MTConnect;
 
 namespace MTLinq
 {
@@ -23,14 +19,14 @@ namespace MTLinq
 
             foreach (Result res in aData)
             {
-                ListViewItem item = new ListViewItem(res.dataItem.component.name);
-                item.SubItems.Add(res.dataItem.name);
-                item.SubItems.Add(res.sequence.ToString());
-                item.SubItems.Add(res.timestamp.ToString());
+                ListViewItem item = new ListViewItem(res.DataItem.Component.Name);
+                item.SubItems.Add(res.DataItem.Name);
+                item.SubItems.Add(res.Sequence.ToString());
+                item.SubItems.Add(res.Timestamp.ToString());
                 if (res is Event)
-                    item.SubItems.Add(((Event)res).value);
+                    item.SubItems.Add(((Event)res).Value);
                 else if (res is Sample)
-                    item.SubItems.Add(((Sample)res).value.ToString());
+                    item.SubItems.Add(((Sample)res).Value.ToString());
                 data.Items.Add(item);
             }
 

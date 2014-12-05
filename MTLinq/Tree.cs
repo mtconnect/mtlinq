@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+
+using MTConnect;
 
 namespace MTLinq
 {
@@ -13,7 +11,7 @@ namespace MTLinq
     {
         static Font mFont = new Font(new Font("Arial", 8), FontStyle.Bold);
 
-        public Tree(Dictionary<String,Device> aDevices)
+        public Tree(Dictionary<String, Device> aDevices)
         {
             InitializeComponent();
 
@@ -26,21 +24,21 @@ namespace MTLinq
             devices.EndUpdate();
         }
 
-        public void buildTree(TreeNodeCollection aNodes, Component aComponent)
+        public void buildTree(TreeNodeCollection aNodes, MTConnect.Component aComponent)
         {
-            TreeNode node = new TreeNode(aComponent.name);
+            TreeNode node = new TreeNode(aComponent.Name);
             node.NodeFont = mFont;
             aNodes.Add(node);
 
-            if (aComponent.dataItems() != null)
+            if (aComponent.DataItems() != null)
             {
-                foreach (DataItem d in aComponent.dataItems())
-                    node.Nodes.Add(new TreeNode(d.category + ":" + d.type + "[" + d.name + "]"));
+                foreach (DataItem d in aComponent.DataItems())
+                    node.Nodes.Add(new TreeNode(d.Category + ":" + d.Type + "[" + d.Name + "]"));
             }
 
-            if (aComponent.components() != null)
+            if (aComponent.Components() != null)
             {
-                foreach (Component c in aComponent.components())
+                foreach (MTConnect.Component c in aComponent.Components())
                 {
                     buildTree(node.Nodes, c);
                 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -50,8 +49,8 @@ namespace MTConnect
 
             List<Result> results = new List<Result>();
 
-            Uri path = new Uri(new Uri(uri), "current");
-            XElement root = XElement.Load(path.ToString());
+            string path = Url.Combine(uri, "current");
+            XElement root = XElement.Load(path);
 
             XNamespace mt = root.Name.Namespace;
 
@@ -62,6 +61,7 @@ namespace MTConnect
             foreach (XElement devStream in devices)
             {
                 Device dev = this.devices[devStream.Attribute("name").Value];
+
                 if (dev != null)
                 {
                     IEnumerable<XElement> streams =

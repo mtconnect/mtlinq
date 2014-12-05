@@ -39,6 +39,7 @@
             this.agentURI.Name = "agentURI";
             this.agentURI.Size = new System.Drawing.Size(241, 20);
             this.agentURI.TabIndex = 0;
+            this.agentURI.Text = "http://24.73.86.186:63392/";
             // 
             // connect
             // 

@@ -12,8 +12,6 @@ namespace MTConnect
 {
     public class Sample : Result
     {
-        public double Value { get; private set; }
-
         public Sample(XElement element, Device device)
             : base(element, device)
         {
@@ -22,5 +20,7 @@ namespace MTConnect
             else
                 Value = 0.0;
         }
+
+        public double Value { get; private set; }
     }
 }

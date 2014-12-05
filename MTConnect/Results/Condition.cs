@@ -12,16 +12,6 @@ namespace MTConnect
 {
     public class Condition : Event
     {
-
-        public string NativeCode { get; private set; }
-
-        public string NativeSeverity { get; private set; }
-
-        public string Type { get; private set; }
-
-        public string Qualifier { get; private set; }
-
-
         public Condition(XElement element, Device device)
             : base(element, device)
         {
@@ -34,5 +24,13 @@ namespace MTConnect
             Type = element.Attribute("type").Value;
             Value = Type + ":" + element.Name.LocalName + ":" + Value;
         }
+
+        public string NativeCode { get; private set; }
+
+        public string NativeSeverity { get; private set; }
+
+        public string Type { get; private set; }
+
+        public string Qualifier { get; private set; }
     }
 }
