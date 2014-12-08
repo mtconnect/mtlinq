@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Linq;
 
-namespace MTConnect
+namespace MTSharp
 {
     public class Result
     {

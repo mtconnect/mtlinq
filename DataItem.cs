@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace MTConnect
+namespace MTSharp
 {
     public class DataItem
     {

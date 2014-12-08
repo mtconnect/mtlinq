@@ -1,14 +1,6 @@
-﻿//************************************************************************************
-//
-// Author: Jacob Ebey
-//
-// Copyright © 2013-2014 OMAX Corporation
-//
-//************************************************************************************
+﻿using System.Xml.Linq;
 
-using System.Xml.Linq;
-
-namespace MTConnect
+namespace MTSharp
 {
     public class Alarm : Event
     {

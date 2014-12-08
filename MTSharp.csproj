@@ -35,7 +35,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Component.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="DataItem.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="MTConnect.cs" />

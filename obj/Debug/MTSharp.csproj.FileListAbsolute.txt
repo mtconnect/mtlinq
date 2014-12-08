@@ -1,0 +1,5 @@
+C:\Users\Jacob\OneDrive\OMAX\Development\MtSharp\bin\Debug\MTConnect.dll
+C:\Users\Jacob\OneDrive\OMAX\Development\MtSharp\bin\Debug\MTConnect.pdb
+C:\Users\Jacob\OneDrive\OMAX\Development\MtSharp\obj\Debug\MTSharp.csprojResolveAssemblyReference.cache
+C:\Users\Jacob\OneDrive\OMAX\Development\MtSharp\obj\Debug\MTConnect.dll
+C:\Users\Jacob\OneDrive\OMAX\Development\MtSharp\obj\Debug\MTConnect.pdb
