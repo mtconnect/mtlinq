@@ -41,13 +41,13 @@ namespace MTSharp
             return devices;
         }
 
-        public List<Result> Current()
+        public Dictionary<string, List<Result>> Current()
         {
             if (this.devices == null) Probe();
 
             if (this.devices == null) return null;
 
-            List<Result> results = new List<Result>();
+            Dictionary<string, List<Result>> result = new Dictionary<string, List<Result>>();
 
             string path = Url.Combine(uri, "current");
             XElement root = XElement.Load(path);
@@ -60,6 +60,8 @@ namespace MTSharp
 
             foreach (XElement devStream in devices)
             {
+                List<Result> results = new List<Result>();
+
                 Device dev = this.devices[devStream.Attribute("name").Value];
 
                 if (dev != null)
@@ -109,8 +111,10 @@ namespace MTSharp
                         }
                     }
                 }
+
+                result.Add(devStream.Attribute("name").Value, results);
             }
-            return results;
+            return result;
         }
     }
 }
