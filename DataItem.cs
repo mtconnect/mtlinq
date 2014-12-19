@@ -43,8 +43,6 @@ namespace MTSharp
             a = element.Attribute("coordinateSystem");
             if (a != null) CoordinateSystem = a.Value;
 
-            // TODO: If it breaks, change back to a constant.
-            //XNamespace mt = Constants.Namespace;
             XNamespace mt = element.Name.Namespace;
             XElement e = element.Element(mt + "Source");
             if (e != null) Source = e.Value;

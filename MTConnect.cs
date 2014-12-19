@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Xml.Linq;
-using System.Diagnostics;
-using System.Collections;
 
 namespace MTSharp
 {
@@ -108,5 +107,3 @@ namespace MTSharp
         }
     }
 }
-
-// TODO: Select Elements of ComponentStream and use single selector method.

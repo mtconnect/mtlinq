@@ -49,7 +49,6 @@ namespace MTSharp
 
             XElement ele = element.Element(mt + "Components");
 
-            // TODO: Make into Linq statement
             if (ele != null)
             {
                 IEnumerable<XElement> children = ele.Elements();
