@@ -3,11 +3,21 @@ using System.Xml.Linq;
 
 namespace MTSharp
 {
+    /// <summary>
+    /// Represents a Component in the stream.
+    /// </summary>
     public class Component
     {
         List<Component> components;
         List<DataItem> dataItems;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MTSharp.Component"/> class.
+        /// </summary>
+        /// <param name="parent">Parent.</param>
+        /// <param name="element">Element.</param>
+        /// <param name="comps">Components.</param>
+        /// <param name="items">Items.</param>
         public Component(Component parent, XElement element, Dictionary<string, Component> comps,
                          Dictionary<string, DataItem> items)
         {
@@ -39,6 +49,7 @@ namespace MTSharp
 
             XElement ele = element.Element(mt + "Components");
 
+            // TODO: Make into Linq statement
             if (ele != null)
             {
                 IEnumerable<XElement> children = ele.Elements();
@@ -64,20 +75,51 @@ namespace MTSharp
             }
         }
 
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <value>The name.</value>
         public string Name { get; private set; }
 
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <value>The identifier.</value>
         public string Id { get; private set; }
 
+        /// <summary>
+        /// Gets the description.
+        /// </summary>
+        /// <value>The description.</value>
         public string Description { get; private set; }
 
+        /// <summary>
+        /// Gets the manufacturer.
+        /// </summary>
+        /// <value>The manufacturer.</value>
         public string Manufacturer { get; private set; }
 
+        /// <summary>
+        /// Gets the serial number.
+        /// </summary>
+        /// <value>The serial number.</value>
         public string SerialNumber { get; private set; }
 
+        /// <summary>
+        /// Gets the parent.
+        /// </summary>
+        /// <value>The parent.</value>
         public Component Parent { get; private set; }
 
+        /// <summary>
+        /// Get the sub components.
+        /// </summary>
         public List<Component> Components() { return components; }
 
+        /// <summary>
+        /// Get the data items.
+        /// </summary>
+        /// <returns>The data items.</returns>
         public List<DataItem> DataItems() { return dataItems; }
     }
 }
